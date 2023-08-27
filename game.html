@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Criteria Radar Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="radarChart"></canvas>
+
+  <script>
+    // Data for the radar chart
+    var data = {
+      labels: ["System Design", "Networking", "Linux", "Culture", "X Factor"],
+      datasets: [
+        {
+          label: "Skills",
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: "rgba(75, 192, 192, 1)",
+          pointBackgroundColor: "rgba(75, 192, 192, 1)",
+          pointBorderColor: "#fff",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(75, 192, 192, 1)",
+          data: [4, 3, 4, 5, 2], // Update these values based on the criteria
+        },
+      ],
+    };
+
+    // Configuration options
+    var options = {
+      responsive: true, // Enable responsiveness
+      maintainAspectRatio: false, // Do not maintain aspect ratio
+      scale: {
+        ticks: {
+          beginAtZero: true,
+          max: 5,
+        },
+      },
+    };
+
+    // Get the canvas element
+    var ctx = document.getElementById("radarChart").getContext("2d");
+
+    // Create the radar chart
+    var myRadarChart = new Chart(ctx, {
+      type: "radar",
+      data: data,
+      options: options,
+    });
+  </script>
+</body>
+</html>
